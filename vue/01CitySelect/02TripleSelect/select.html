@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用ajax实现地区三级联动</title>	
+	<script type="text/javascript" src="js/jquery-3.2.1.js"         ></script>
+	<script type="text/javascript">	
+		$(document).ready(function(){     //注释1：该语句的作用是                      
+		    $.ajax({
+		        url:area.json,            
+		        type:"get",  //注释2：该语句的作用是                     
+		        dataType:"json",
+		        success:function(data){
+		        	console.log(data);
+		            for(var key in data ){  //注释3：在该行代码中key的作用是                    
+		                $("#provice").append("<option value="+key+">"+key+"</option>");  
+		            }
+
+		            $("#provice").change(function(){
+		                var now_provice=$("#provice option:selected").val();
+		                $("#city").empty();
+		                $("#city").append("<option>请输入城市</option>");   //注释4：该语句的作用是                        
+		                for(var key in data[now_provice]){  //注释5：该语句中data[now_provice]保存的数据是                      
+		                    $("#city").append("<option value="+key+">"+key+"</option>");
+		                }
+
+		                $("#city").change(function(){
+			                var now_city=$("#city option:selected").val();
+			                $("#area").empty();
+			                $("#area").append("<option>请输入地区</option>");
+			                for(var k in         data[now_city][0]         ){
+			                    $("#area").append("<option value="+   k          +">"+             k     +"</option>");
+			                }
+		            	})
+		        	})
+		    	}
+		    })     
+		});
+	</script>
+</head>
+<style type="text/css">
+	#address{
+		font-size: 20px;		
+	}
+	#provice{
+		width: 150px;
+		height: 40px;
+		font-size: 16px;
+	}
+	#city{
+		width: 150px;
+		height: 40px;	
+		font-size: 16px;	
+	}
+	#area{
+		width: 150px;
+		height: 40px;	
+		font-size: 16px;	
+	}
+</style>
+<body>	
+    <div id="address">
+        <label>家庭住址：</label>
+            <select id="provice">
+                <option>请选择省份</option>
+            </select>
+            <select id="city">
+                <option>请选择城市</option>
+            </select>
+            <select id="area">
+                <option>请选择地区</option>
+            </select>
+    </div>
+</body>
+</html> 

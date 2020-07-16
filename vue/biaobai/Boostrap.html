@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+ 	#demo{
+ 		width: 200px;
+ 		height: 200px;
+ 		border: 6px solid #FF0000;
+ 		position: relative;
+ 		overflow: hidden;
+ 	}
+  .carousel-inner img {
+      width: 100%;
+      height: 30%;
+  }
+  .prev-srow,.prev-next{
+  	  background: aquamarine;
+  }
+  .shop-img{
+  		height: 130px;
+  }
+  .img-content{
+  	top: 20px;
+  }
+  .shop-content{
+  		width: 200px;
+  		height: 20px;
+  		border: 1px solid #008000;
+  		position: absolute;
+  		bottom: 20px;
+  }
+  .shop-content p,h3{
+  	font-size: 10px;
+  }
+  </style>
+</head>
+<body>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+ 	 <div class="shop-content">
+ 	 		<h3>worms电动牙刷成人家用软毛超声波防水美白全自动网红款 情侣牙刷</h3>
+      <p>告别手动刷牙 智能强劲清洁 质保以换代修</p>
+ 	 </div>
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+ 
+  <!-- 轮播图片 -->
+  <div class="carousel-inner shop-img">
+    <div class="carousel-item active">
+      <img src="23823407-4572d9be697d7870.jpg">
+      <div class="carousel-caption img-content">
+        <h3>worms电动牙刷成人家用软毛超声波防水美白全自动网红款 情侣牙刷</h3>
+        <p>告别手动刷牙 智能强劲清洁 质保以换代修</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="23823407-537953caabbe8b9e.jpg">
+      <div class="carousel-caption">
+        <h3>第二张图片描述标题</h3>
+        <p>描述文字!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="23823407-80727ed0717c1760.jpg">
+      <div class="carousel-caption">
+        <h3>第三张图片描述标题</h3>
+        <p>描述文字!</p>
+      </div>
+    </div>
+  </div>
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev prev-srow" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next prev-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+ 
+</div>
+
+</body>
+</html>

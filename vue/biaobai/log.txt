@@ -1,0 +1,43 @@
+array (
+)array (
+)array (
+  'nickname' => 'fdf',
+  'password' => 'fr3233',
+  'sex' => '男',
+  'status' => 'true',
+  'aihao' => 'hj',
+  'grade' => '53',
+)array (
+  'nickname' => 'fdf',
+  'password' => 'fr3233',
+  'sex' => '男',
+  'status' => 'true',
+  'aihao' => 'hj',
+  'grade' => '53',
+)array (
+)array (
+  'nickname' => 'dee',
+  'password' => 'eee4',
+  'sex' => '女',
+  'status' => 'true',
+  'aihao' => 'hj',
+  'grade' => '57',
+)array (
+)array (
+)array (
+  'nickname' => 'e',
+  'password' => 'edw',
+  'sex' => '男',
+  'status' => 'true',
+  'aihao' => 'hj',
+  'grade' => '43',
+)array (
+)array (
+)array (
+  'nickname' => 'e',
+  'password' => 'e',
+  'sex' => '男',
+  'status' => 'true',
+  'aihao' => 'hj',
+  'grade' => '48',
+)

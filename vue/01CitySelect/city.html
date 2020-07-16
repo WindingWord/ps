@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用ajax实现城市选择</title>	
+	<script src="js/jquery-3.2.1.js"></script>
+</head>
+<style type="text/css">
+	.selectCity{
+		font-size: 16px;		
+	}
+	#provice{
+		width: 150px;
+		height: 40px;
+		font-size: 16px;
+	}
+	#city{
+		width: 150px;
+		height: 40px;	
+		font-size: 16px;	
+	}
+</style>
+<body>	
+	<div class="selectCity">
+		<span>请选择地区：</span>
+		<select name="" id="provice">
+			<option value="">请选择省份</option>
+			<option value="山西省">山西省</option>
+			<option value="广东省">广东省</option>
+			<option value="山东省">山东省</option>
+			<option value="湖南省">湖南省</option>
+		</select>
+		
+		<select name="" id="city">请选择城市</select>	
+	</div>
+	<!-- <script>
+		//一,用js操作ajax;
+		var xhr;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+
+		}else{
+			xhr=new ActiveXobject("Msxml2.XMLHTTP");
+		}
+		var provice=document.getElementById("provice");
+		provice.onchange=function(){
+// 			0：请求未初始化，还没有调用 open()。
+
+// 1：请求已经建立，但是还没有发送，还没有调用 send()。
+
+// 2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。
+
+// 3：请求在处理中；通常响应中已有部分数据可用了，没有全部完成。
+
+// 4：响应已完成；您可以获取并使用服务器的响应了。
+			var shengfen=this.value;
+			//设置请求,open,请求地址，请求地址，是否为异步请求
+			xhr.open("post","test.php",)   //true代表异步，false代表同步
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");                               //设置请求头，get才做
+			xhr.send("provice="+shengfen);
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){ 
+					var str=xhr.responseText;
+					var arr=str.split(",");
+					var string="";
+					for(var i=0;i<arr.length;i++){
+						var string = string+"<option value='"+arr[i]+"'>"+arr[i]+"</option>";
+						console.log(string);
+					}
+					document.getElementById('city').innerHTML=string;
+				}
+			}
+		}
+	</script> -->
+	<script>
+		var $provice=$("#provice");
+		var $city=$("#city");
+		$provice[0].onchange=function(){
+			$city.html("");
+			$.ajax({
+				type:"post",
+				url:"test.php",
+				data:{provice:$(this).val()}, 
+				success:function(data){
+					var arr=data.split(",");
+					var string;
+					arr.forEach(function(el){
+						string = `<option value='${el}'>${el}</option>`;
+						console.log(string);
+						$city.append(string);
+					})
+				}
+			})
+			
+			
+		}
+		
+	</script>	
+</body>
+</html>

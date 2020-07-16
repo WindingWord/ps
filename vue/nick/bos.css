@@ -1,0 +1,33 @@
+h1,h3,p,a,button{
+	font-family: "微软雅黑""verdana, geneva, arial, helvetica, sans-serif";
+}
+.onepage{
+	height: 750px;
+}
+.onepage-bg{
+	height: 800px;
+	width: 100%;
+	position: absolute;
+	background-position: center center;
+	background-size: cover;
+}
+#onepagebg{
+	background-color: #FF0000;
+}
+.headcontent{
+	margin-top: 150px;
+	line-height: 75px;
+}
+.title-text{
+	margin-left: 50px;
+}
+.headfontsize h1{
+	font-size: 50pt;
+	color: #FFFFFF;
+}
+.headfontsize p{
+	color: #FFFFFF;
+}
+.p-content{
+	margin:30px 30px;
+}

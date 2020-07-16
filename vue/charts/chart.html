@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="echarts.min (1).js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="main" style="width: 900px; height: 600px;">
+			
+		</div>
+		<script type="text/javascript">
+			var myChart=echarts.init(document.getElementById('main'));
+			var option={
+				//标题
+				title:{
+					show:false,
+					text:'Echart入门实例',
+					subtext:'学习echart来博学谷',
+					left:'50px',
+					borderColor:'blue',
+					borderWidth:5,
+					textStyle:{
+						fontSize:40
+					}
+				},
+				//是否显示和保存图片
+				toolbox:{
+					show:true,
+					feature:{
+						dataView:{
+							show:true
+						},
+						restore:{
+							show:true
+						},
+						dataZoom:{
+							show:true
+						},
+						saveAsImage:{
+							show:true
+						},
+						magicType:{
+							type:['line','bar']
+						}
+					}
+				},
+				//显示数据
+				tooltip:{
+					trigger:'axis'
+				},
+//				图例,用红色显示
+				legend:{
+					data:['销量']
+				},
+				xAxis:{
+					data:['羊毛衫','裙子','裤子','高更鞋']
+				},
+				yAxis:{},
+				series:[{
+					name:'销量',
+					type:'bar',
+					data:[5,28,14,9],
+					
+					markPoint:{
+						data:[
+							{type:'max',name:'最大值'},
+							{type:'min',name:'最小值',symbol:'arraw'}
+						]
+					},
+					markLine:{
+						data:[
+							{type:'average',name:'平均值'}
+						]
+					}
+				},{
+					name:'产量',
+					type:'line',
+					data:[12,78,5,21]
+				}]
+			};
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>

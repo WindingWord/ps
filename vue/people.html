@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>员工查询</h1>
+		<lable>请输入员工编号:</lable>
+		<input type="text" id="keyword" />
+		<button id="search">查询</button>
+		<p id="searchResult"></p>
+		
+		<h1>员工创建</h1>
+		<label>请输入员工姓名:</label>
+		<input type="text" id="staffName" />
+		<label>请输入员工编号</label>
+		<input type="text" id="staffNumber" />
+		<label>请输入员工性别</label>
+		<select id="staffSex">
+			<option>男</option>
+			<option>女</option> 
+		</select>
+		<label>请输入员工职位</label>
+		<input type="text" id="keyword" />
+		<button id="save">保存</button>
+		<p id="createResult"></p>
+	</body>
+	<script type="text/javascript">
+		$("#search").click(function(){
+			$.ajax({
+				type:"GET",
+				url:"server.php?number="+$("#keyword").val(),
+				dataType:"json",
+				data:{
+					name:$("#staffName").val(),
+					number:$("#staffNumber").val(),
+					sex:$("#staffSex").val(),
+					job:$("#staffjob").val(),
+				}
+				success:function(data){
+					if(data.success){
+						$("#createResult").html(data.msg);
+					}else{
+						$("#createResult").html("出现错误"+data.msg);
+					}
+				},
+				error:function(jqXHR){
+					alert("发生错误"+jqXHR.status);
+				}
+			})
+		})
+		document.getElementById("search").onclick=function(){
+			var request=new XMLHttpRequest();
+			request.open("GET","service.php");
+			var data="name="+document.getElementById("staffName").value
+					 +"&number="+document.getElementById("staffNumber").value
+					 +"&sex="+document.getElementById("staffSex").value
+					 +"&job="+document.getElementById("staffjob").value;
+			request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			request.send(data);
+			if(request.readyState===4){
+				if(request.status===200){
+					var data=JSON.parse(request.responseText);
+					document.getElementById("searchResult").innerHTML=data.msg;
+				}else{
+					alert("发生错误"+request.status);
+				}
+			}
+		}
+	</script>
+</html>

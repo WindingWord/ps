@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		身份证号码:<input type="text" id="credit" placeholder="请输入身份证号码" />
+	</body>  
+	<script type="text/javascript"
+		
+		var credit = document.getElementById("credit");
+		var creditText=document.getElementById("credit").value;
+		credit.onblur=function(){
+			console.log("dwe");
+			console.log(isCardNo(creditText));
+			if(isCardNo(creditText)==false){
+				alert("身份证输入不合法");
+			}else{
+				alert("输入合法");
+			}
+		}
+		function isCardNo(card) {
+			var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+			if(reg.test(card) === false) {
+				return false;
+			}else{
+				return true;
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS3天文望远镜和星空场景动画</title>
+<style>
+body {
+    background: black;
+}
+.container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: #091021;
+    margin: 90px auto;
+    overflow: hidden;
+}
+.luna {
+    position: absolute;
+    width: 102px;
+    height: 102px;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, .3);
+    margin: 50px 650px
+}
+.luna::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, .5);
+    margin: 12px 11px
+}
+.luna::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: white;
+    margin: 21px 21px
+}
+.star {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background: white;
+    margin: 50px 70px;
+    -webkit-animation: brilla .7s alternate infinite;
+    animation: brilla .7s alternate infinite;
+}
+.star::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background: white;
+    margin: 70px -33px
+}
+.sky {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 100%;
+    margin: -30px 50px
+}
+.stars {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 100%;
+    margin: 0px 0px;
+    -webkit-animation: rotar 30s linear infinite;
+    animation: rotar 30s linear infinite;
+}
+span:nth-child(1),
+span:nth-child(3),
+span:nth-child(5),
+span:nth-child(7),
+span:nth-child(9),
+span:nth-child(11),
+span:nth-child(13),
+span:nth-child(15) {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background: white;
+}
+span:nth-child(1) {
+    margin: 152px 132px;
+}
+span:nth-child(3) {
+    margin: 90px 340px;
+}
+span:nth-child(5) {
+    margin: 152px 550px;
+}
+span:nth-child(7) {
+    margin: 550px 132px;
+}
+span:nth-child(9) {
+    margin: 630px 340px;
+}
+span:nth-child(11) {
+    margin: 560px 550px;
+}
+span:nth-child(13) {
+    margin: 350px 231px;
+}
+span:nth-child(15) {
+    margin: 350px 470px;
+}
+span:nth-child(2),
+span:nth-child(4),
+span:nth-child(6),
+span:nth-child(8),
+span:nth-child(10),
+span:nth-child(12),
+span:nth-child(14),
+span:nth-child(16) {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background: white;
+    -webkit-animation: brilla .3s alternate infinite;
+    animation: brilla .3s alternate infinite;
+}
+span:nth-child(2) {
+    margin: 231px 231px;
+}
+span:nth-child(4) {
+    margin: 231px 450px;
+}
+span:nth-child(6) {
+    margin: 251px 90px;
+}
+span:nth-child(8) {
+    margin: 251px 600px;
+}
+span:nth-child(10) {
+    margin: 450px 90px;
+}
+span:nth-child(12) {
+    margin: 490px 231px;
+}
+span:nth-child(14) {
+    margin: 450px 600px;
+}
+span:nth-child(16) {
+    margin: 490px 460px;
+}
+span:nth-child(17),
+span:nth-child(18),
+span:nth-child(19),
+span:nth-child(20),
+span:nth-child(21),
+span:nth-child(22),
+span:nth-child(23),
+span:nth-child(24),
+span:nth-child(25),
+.span:nth-child(25),
+span:nth-child(27),
+.span:nth-child(28),
+span:nth-child(29),
+span:nth-child(30) {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background: white;
+    -webkit-animation: brilla .7s alternate infinite;
+    animation: brilla .7s alternate infinite;
+}
+span:nth-child(17) {
+    margin: 192px 345px;
+}
+span:nth-child(18) {
+    margin: 430px 345px;
+}
+span:nth-child(19) {
+    margin: 350px 30px;
+}
+span:nth-child(20) {
+    margin: 350px 660px;
+}
+span:nth-child(21) {
+    margin: 300px 345px;
+}
+span:nth-child(22) {
+    margin: 600px 231px;
+}
+span:nth-child(23) {
+    margin: 600px 470px;
+}
+span:nth-child(24) {
+    margin: 70px 231px;
+}
+span:nth-child(25) {
+    margin: 70px 450px;
+}
+span:nth-child(26) {
+    margin: 600px 470px;
+}
+span:nth-child(27) {
+    margin: 530px 340px;
+}
+.observatorio {
+    position: absolute;
+    width: 231px;
+    height: 132px;
+    background: white;
+    margin: 300px 251px;
+    border: 3px solid #333;
+    -webkit-transform: scale(.7);
+    transform: scale(.7)
+}
+.observatorio3 {
+    position: absolute;
+    width: 121px;
+    height: 90px;
+    background: white;
+    margin: 336px 430px;
+    border: 3px solid #333;
+    -webkit-transform: scale(.7);
+    transform: scale(.7)
+}
+.observatorio::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 132px;
+    background: #ccc;
+    margin: 0 221px
+}
+.observatorio3::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 90px;
+    background: #ccc;
+    margin: 0 112px
+}
+.circ {
+    position: absolute;
+    width: 231px;
+    height: 121px;
+    border-radius: 251px 251px 0 0;
+    background: #008FFC;
+    border: 3px solid #333;
+    margin: -121px -3px
+}
+.circ::before {
+    content: "";
+    position: absolute;
+    width: 221px;
+    height: 121px;
+    border-radius: 251px 251px 0 0;
+    background: #0EA7F9;
+    margin: 0px 0px
+}
+.circ::after {
+    content: "";
+    position: absolute;
+    width: 221px;
+    height: 90px;
+    border-radius: 221px 221px 0 0;
+    border-left: 5px solid white;
+    margin: 12px 12px;
+}
+ul.vent {
+    position: absolute;
+    width: 231px;
+    height: 112px;
+    list-style: none;
+    margin: 21px -33px
+}
+ul.vent li {
+    display: inline-block;
+    width: 30px;
+    height: 21px;
+    background: #333;
+    margin: 12px 5px
+}
+ul.vent3 {
+    position: absolute;
+    width: 172px;
+    height: 112px;
+    list-style: none;
+    margin: 53px 201px
+}
+ul.vent3 li {
+    display: inline-block;
+    width: 21px;
+    height: 12px;
+    background: #333;
+    margin: 30px 5px
+}
+.tele {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background: #DB00C9;
+    border: 3px solid #333;
+    margin: 251px 380px;
+    -webkit-animation: rotar3 7s alternate infinite;
+    animation: rotar3 7s alternate infinite;
+}
+.tele::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    background: white;
+    margin: -2px 70px;
+    border: 3px solid #333;
+}
+.tele::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 7px;
+    background: #8C0093;
+    margin: -2px 70px;
+    margin: 25px 0
+}
+ul.cerros {
+    position: absolute;
+    width: 1200px;
+    height: 300px;
+    list-style: none;
+    margin: 152px -121px;
+}
+ul.cerros3 {
+    position: absolute;
+    width: 1200px;
+    height: 300px;
+    list-style: none;
+    margin: 330px -121px;
+}
+ul.cerros li,
+ul.cerros3 li {
+    display: inline-block;
+    width: 0;
+    height: 0;
+}
+ul.cerros li:nth-child(1) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 231px solid #101321
+}
+ul.cerros li:nth-child(2) {
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 201px solid #101321;
+    margin: 0 -90px
+}
+ul.cerros li:nth-child(3) {
+    border-left: 102px solid transparent;
+    border-right: 102px solid transparent;
+    border-bottom: 251px solid #101321;
+    margin: 0 0px
+}
+ul.cerros li:nth-child(4) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 271px solid #101321;
+    margin: 0 -102px
+}
+ul.cerros li:nth-child(5) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 231px solid #101321;
+    margin: 0 -30px
+}
+ul.cerros li:nth-child(6) {
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 201px solid #101321;
+    margin: 0 -90px
+}
+ul.cerros li:nth-child(7) {
+    border-left: 102px solid transparent;
+    border-right: 102px solid transparent;
+    border-bottom: 221px solid #101321;
+    margin: 0 -12px
+}
+ul.cerros li:nth-child(8) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 231px solid #101321;
+    margin: 0 -90px
+}
+ul.cerros3 li:nth-child(1) {
+    border-left: 102px solid transparent;
+    border-right: 102px solid transparent;
+    border-bottom: 271px solid #142D63
+}
+ul.cerros3 li:nth-child(2) {
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 201px solid #142D63;
+    margin: 0 -90px
+}
+ul.cerros3 li:nth-child(3) {
+    border-left: 102px solid transparent;
+    border-right: 102px solid transparent;
+    border-bottom: 251px solid #142D63;
+    margin: 0 0px
+}
+ul.cerros3 li:nth-child(4) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 192px solid #142D63;
+    margin: 0 -102px
+}
+ul.cerros3 li:nth-child(5) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 212px solid #142D63;
+    margin: 0 -30px
+}
+ul.cerros3 li:nth-child(6) {
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 251px solid #142D63;
+    ;
+    margin: 0 -70px
+}
+ul.cerros3 li:nth-child(7) {
+    border-left: 112px solid transparent;
+    border-right: 112px solid transparent;
+    border-bottom: 221px solid #142D63;
+    margin: 0 -12px
+}
+ul.cerros3 li:nth-child(8) {
+    border-left: 102px solid transparent;
+    border-right: 102px solid transparent;
+    border-bottom: 251px solid #142D63;
+    margin: 0 -95px
+}
+.hills {
+    position: absolute;
+    width: 300px;
+    height: 152px;
+    border-radius: 300px 300px 0 0;
+    background: #246D51;
+    margin: 370px -33px
+}
+.hills::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 152px;
+    border-radius: 300px 300px 0 0;
+    background: #246D51;
+    margin: 0px 570px
+}
+.hills::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 251px;
+    border-radius: 300px 300px 0 0;
+    background: #246D51;
+    margin: -21px 241px
+}
+.hills3 {
+    position: absolute;
+    width: 800px;
+    height: 132px;
+    background: #142D63;
+    ;
+    margin: 500px 0px
+}
+@-webkit-keyframes rotar {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+@keyframes rotar {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+@-webkit-keyframes rotar3 {
+    0% {
+        -webkit-transform: rotate(-50deg);
+        transform: rotate(-50deg)
+    }
+    100% {
+        -webkit-transform: rotate(-3deg);
+        transform: rotate(-3deg)
+    }
+}
+@keyframes rotar3 {
+    0% {
+        -webkit-transform: rotate(-50deg);
+        transform: rotate(-50deg)
+    }
+    100% {
+        -webkit-transform: rotate(-3deg);
+        transform: rotate(-3deg)
+    }
+}
+@-webkit-keyframes brilla {
+    0% {
+        opacity: .3
+    }
+    100% {
+        opacity: 1
+    }
+}
+@keyframes brilla {
+    0% {
+        opacity: .3
+    }
+    100% {
+        opacity: 1
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="luna"></div>
+    <div class="star"></div>
+    <div class="sky">
+        <div class="stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+
+        </div>
+    </div>
+    <ul class="cerros">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="hills"></div>
+    <div class="hills3"></div>
+
+    <div class="observatorios">
+        <div class="tele"></div>
+        <div class="observatorio3"></div>
+        <div class="observatorio">
+            <div class="circ"></div>
+            <ul class="vent">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="vent3">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <ul class="cerros3">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

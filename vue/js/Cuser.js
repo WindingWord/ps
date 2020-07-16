@@ -1,0 +1,5 @@
+(function(){
+	$('.Csumbit').click(function(){
+		
+	})
+})
